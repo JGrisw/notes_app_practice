@@ -1,0 +1,16 @@
+<!--container template for each of the notes. -->
+<div #container class="note-card-container">
+  <a [routerLink]="[link]">
+    <div class="note-card-content">
+      <h1 class="note-card-title">{{ title }}</h1>
+      <div class="note-card-body">
+        <p #bodyText>
+          {{ body }}
+        </p>
+        <div #truncator class="fade-out-truncation"></div>
+      </div>
+    </div>
+  </a>
+
+  <div class="x-button" (click)="onXButtonClick()"></div>
+</div>

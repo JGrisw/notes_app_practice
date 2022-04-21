@@ -1,0 +1,46 @@
+<!--template for the new note page-->
+<!--div for the title. required part of form that will not push Note if not filled out-->
+<div class="form-container">
+  <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)">
+    <div class="field">
+      <label class="label">Title</label>
+      <div class="control">
+        <input
+          class="input"
+          required
+          type="text"
+          [ngModel]="note.title"
+          name="title"
+        />
+      </div>
+    </div>
+    <br/>
+    <!--div for body of the note. -->
+    <div class="field">
+      <label class="label">Body</label>
+      <div class="control">
+        <textarea class="textarea" name="body" [ngModel]="note.body"></textarea>
+      </div>
+    </div>
+
+    <!--div for cancel button, bound to click event that reroutes back to home page -->
+    <div class="field is-grouped is-pulled-right">
+      <div class="control">
+        <button class="button is-text" type="button" (click)="cancel()">
+          Cancel
+        </button>
+      </div>
+      <!--div for save button, disabled for simple form validation that requires a title-->
+      <div class="control">
+        <button
+          class="button is-link"
+          id="submitButton"
+          type="submit"
+          [disabled]="!noteForm.valid"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
